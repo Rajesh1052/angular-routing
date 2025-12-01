@@ -6,6 +6,7 @@ import {
 } from './users/user-tasks/user-tasks.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { routes as userRoutes } from './users/users.routes';
+import { dummyCanMatch } from './route-guards.guard';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
     path: 'users/:userId', //<your-domain>/users/uid
     component: UserTasksComponent,
     children: userRoutes,
+    canMatch: [dummyCanMatch],
     data: {
       message: 'Hello',
     },
